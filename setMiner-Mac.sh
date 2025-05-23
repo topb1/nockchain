@@ -62,7 +62,7 @@ if ! command -v rustc &> /dev/null; then
 else
     echo "Rust 已安装"
 fi
-exit 0
+
 # # 安装 Docker
 # # if ! command -v docker &> /dev/null; then
 # #     echo "安装 Docker..."
