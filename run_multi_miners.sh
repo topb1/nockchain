@@ -48,13 +48,7 @@ for i in $(seq $START_INDEX $(($START_INDEX + $NUM_NODES - 1))); do
   cp .env node$i/
   NODES="$NODES ./node$i"
   echo " node$i 节点环境创建完成！"
-done
-echo ""
-echo "** 节点环境准备完成，开始启动节点 **"
-
-# Run each instance in its own directory with .env loaded
-for i in $(seq $START_INDEX $(($START_INDEX + $NUM_NODES - 1))); do
-  cd node$i && sh ../scripts/run_nockchain_miner.sh &
+  cd node$i && sh ../scripts/run_nockchain_miner.sh > node$i.log 2>&1 &
   echo " node$i 节点启动完成！"
 done
 
